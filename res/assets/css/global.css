@@ -3,7 +3,9 @@
 :root {
     --primary: #FDFBF7;
     --secondary: #ffc23a;
+    --secondary-a: #ffc13a24;
     --ternary: #AB4227;
+    --ternary-a: #AB422724;
 }
 
 body {
@@ -47,7 +49,23 @@ h2 {
 fieldset {
     border: none;
 }
+input {
+    font-family: 'Quattrocento Sans', sans-serif;
+    background-color: var(--secondary-a);
+    border: none;
+    border-bottom: 2px solid var(--secondary);
+    border-radius: 5px;
+    padding: 0.5em;
+    margin: 0.5em;
+}
 
+.error {
+    background-color: var(--ternary-a);
+    color: var(--ternary);
+    border-left: solid 2px var(--ternary);
+    border-radius: 5px;
+    padding: 0.5em;
+}
 .bordered {
     border: 5px double var(--secondary);
     padding: 1em;

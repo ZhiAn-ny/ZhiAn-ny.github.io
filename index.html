@@ -42,25 +42,27 @@
                 scriveremo tutti gli aggiornamenti e i dettagli riguardanti il
                 nostro matrimonio.
             </p>
-            <!-- <p>
+            <p>
                 Più in basso troverai una sezione dedicata alla conferma della tua
                 presenza: ti preghiamo di darci una risposta il prima possibile
                 in modo da aiutarci nell'organizzazione dei preparativi.
-            </p> -->
+            </p>
         </section>
 
         <section class="top-border">
-            <!-- <h1>RSVP</h1>
+            <h1>RSVP</h1>
             <p>Cerca il tuo nominativo nella lista degli invitati.</p>
             
-            <form action="get">
+            <form action="get" id="guest-form">
                 <fieldset>
-                    <input type="text" placeholder="Nome">
-                    <input type="text" placeholder="Cognome">
+                    <input name="name" type="text" placeholder="Nome">
+                    <input name="surname" type="text" placeholder="Cognome">
                 </fieldset>
-            </form> -->
+            </form>
 
-            <!-- <article>
+            <ul name="guest-result-list"></ul>
+<!-- 
+            <article>
                 <p>[inserire invito personalizzato]</p>
                 <form action="post" class="bordered">
 

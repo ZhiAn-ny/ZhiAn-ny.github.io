@@ -1,11 +1,17 @@
-import { createClient } from 'npm:@supabase/supabase-js@2'
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-const supabaseUrl = 'https://irvazdxcjjnjvilkpoqj.supabase.co'
-const supabaseKey = process.env.SUPABASE_KEY
-const supabase = createClient(supabaseUrl, supabaseKey)
+const supabaseUrl = "https://irvazdxcjjnjvilkpoqj.supabase.co";
+const supabaseKey = "sb_publishable_Wh3FU7a6kxGTG2hbOETZBA_tcTNe-Ba";
 
-let { data: guests, error } = await supabase
-  .from('guests')
-  .select('name,surname')
+export const supabase = createClient(supabaseUrl, supabaseKey);
 
-console.log(guests);
+// Test query
+const { data, error } = await supabase
+  .from("guests")
+  .select("name, surname");
+
+if (error) {
+  console.error("Supabase error:", error);
+} else {
+  console.log("Guests:", data);
+}

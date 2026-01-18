@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Italiana&family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
-    --primary: #EBDDBE;
-    --secondary: #E8B441;
+    --primary: #FDFBF7;
+    --secondary: #ffc23a;
     --ternary: #AB4227;
 }
 
@@ -21,6 +21,10 @@ main {
 section {
     margin: 2em 0;
     padding: 1em;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 h1, h2 {
@@ -36,6 +40,9 @@ h2 {
     font-size: 2em;
     margin: 0.5em;
 }
+.greater {
+    font-size: 5em;
+}
 
 fieldset {
     border: none;
@@ -44,4 +51,8 @@ fieldset {
 .bordered {
     border: 1px solid var(--secondary);
     padding: 1em;
+}
+
+@media (min-width: 600px) {
+  /* desktop styles */
 }

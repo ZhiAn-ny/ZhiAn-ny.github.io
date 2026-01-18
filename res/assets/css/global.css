@@ -49,9 +49,42 @@ fieldset {
 }
 
 .bordered {
-    border: 1px solid var(--secondary);
+    border: 5px double var(--secondary);
     padding: 1em;
 }
+.top-border {
+    border-top: 5px double var(--secondary);
+    padding: 1em;
+}
+.no-padding {
+    padding: 0 !important;
+}
+
+.parent {
+    position: relative;
+}
+.corner-top-left, .corner-top-right, .corner-bottom-left, .corner-bottom-right {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+}
+.corner-top-left {
+    top: 0;
+    left: 0;
+}   
+.corner-top-right {
+    top: 0;
+    right: 0;    
+}
+.corner-bottom-left {
+    bottom: 0;
+    left: 0;
+}
+.corner-bottom-right {
+    bottom: 0;
+    right: 0;
+}
+
 
 @media (min-width: 600px) {
   /* desktop styles */

@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    --primary: #EBDDBE;
+    --secondary: #E8B441;
+    --ternary: #AB4227;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quattrocento Sans', sans-serif;
+    background-color: var(--primary);
+    color: #333;
+    text-align: center;
+}
+main {
+    padding: 1em;
+}
+
+section {
+    margin: 2em 0;
+    padding: 1em;
+}
+
+h1, h2 {
+  font-family: "Italiana", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+h1 {
+    font-size: 3em;
+    margin: 0.5em;
+}
+h2 {
+    font-size: 2em;
+    margin: 0.5em;
+}
+
+fieldset {
+    border: none;
+}
+
+.bordered {
+    border: 1px solid var(--secondary);
+    padding: 1em;
+}

@@ -57,7 +57,7 @@ h2 {
 .greater-chinese { 
     font-size: 7em; 
     font-family: 'Ma Shan Zheng', sans-serif;
-    letter-spacing: -35px;
+    letter-spacing: -0.6em;
     color: #f6e8d4;
     position: relative;
 

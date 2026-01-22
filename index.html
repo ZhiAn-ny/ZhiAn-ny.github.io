@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="res/assets/css/global.css" rel="stylesheet" type="text/css"/>
+    <link href="res/assets/css/global.css" rel="stylesheet" type="text/css" />
     <script src="res/assets/js/main.js" type="module"></script>
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+        type="text/javascript"></script>
     <title>Matrimonio A + F</title>
 </head>
+
 <body>
     <main>
 
@@ -20,11 +23,11 @@
             <div class="corner-top-right bordered no-padding"></div>
             <div class="corner-bottom-left bordered no-padding"></div>
             <div class="corner-bottom-right bordered no-padding"></div>
-            
+
             <section class="bordered">
-                <header>Siamo lieti di annunciare che il nostro matrimonio si terrà a</header>
-                <h1>Maggio 2026</h1>
-                <h2>a Misano Adriatico</h2>
+                <header>Siamo lieti di annunciare che il nostro matrimonio si terrà il</header>
+                <h1>30 Maggio 2026</h1>
+                <!-- <h2>a Misano Adriatico</h2> -->
             </section>
         </div>
 
@@ -49,36 +52,58 @@
             </p>
         </section>
 
-        <section class="top-border">
+        <section>
             <h1>RSVP</h1>
-            <p>Cerca il tuo nominativo nella lista degli invitati.</p>
-            
-            <form action="get" id="guest-form">
-                <fieldset>
-                    <input name="name" type="text" placeholder="Nome">
-                    <input name="surname" type="text" placeholder="Cognome">
-                </fieldset>
-            </form>
+            <div class="loading-container">
+                <div class="loading" hidden></div>
+            </div>
+            <search>
+                <p>Cerca il tuo nominativo nella lista degli invitati.</p>
 
-            <ul name="guest-result-list"></ul>
-<!-- 
-            <article>
-                <p>[inserire invito personalizzato]</p>
-                <form action="post" class="bordered">
+                <form id="guest-form" action="none">
+                    <fieldset>
+                        <input name="name" type="text" placeholder="Nome">
+                        <input name="surname" type="text" placeholder="Cognome">
+                    </fieldset>
+                </form>
+                <button id="search">Cerca</button>
+                
+                <ul id="guest-list"></ul>
+            </search>
 
-                    <input type="radio" id="_yes" name="participation" value="yes">
-                    <label for="_yes">Accetto</label>
+            <article hidden class="bordered">
+                <p name="invite">[inserire invito personalizzato]</p>
+                <p class="comment">Per favore, compila il modulo sottostante per confermare la tua presenza.</p>
+                <form action="none" id="rsvp">
+
+                    <input type="radio" id="_yes" name="participation" value="yes" required>
+                    <label for="_yes">Parteciperò</label>
                     <input type="radio" id="_no" name="participation" value="no">
                     <label for="_no">Non parteciperò</label>
 
-                    <fieldset>
-                        <input type="select" placeholder="Cognome">
+                    <fieldset class="row wrap no-padding top-margin-5vh">
+                        <label for="cars">Menù:</label>
+                        <select name="menu" id="menu"></select>
+                        <input type="text" name="allergies" id="allergies" placeholder="Allergie o intolleranze">
+                    </fieldset>
+
+                    <fieldset class="row wrap no-padding top-margin-5vh">
+                        <label for="transport">Serve un passaggio?</label>
+                        <input type="checkbox" name="transport" id="transport" value="no">
+                        <p class="comment">Disclaimer: stiamo considerando un servizio navetta ma solo se riuscimao a
+                            raggiungere abbastanza partecipanti.</p>
+
+                        <!-- <label for="return_time">Preferenza orario:</label>
+                        <input type="time" name="return_time" id="return_time"> -->
                     </fieldset>
                 </form>
-            </article> -->
-        </section>    
+                <button id="sendRSVP">Salva</button>
+            </article>
+
+            <h2 hidden id="RSVP-confirmation">Grazie della conferma!</h2>
+        </section>
 
     </main>
 </body>
+
 </html>
-              

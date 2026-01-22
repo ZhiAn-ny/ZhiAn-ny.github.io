@@ -5,8 +5,10 @@ const supabaseKey = "sb_publishable_Wh3FU7a6kxGTG2hbOETZBA_tcTNe-Ba";
 
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
-const _person = { name: "", surname: "" };
-let _guestForm = document.querySelector("form[id='guest-form']");
+let _person = { name: "", surname: "" };
+const guestForm = document.querySelector("form[id='guest-form']");
+const guestList = document.querySelector("ul[id='guest-list']");
+
 
 async function searchGuest() {
   _person.name = document.querySelector("input[name='name']").value;
@@ -30,35 +32,108 @@ async function searchGuest() {
     return;
   }
 
-  _guestForm.querySelector("p.error")?.remove();
+  guestForm.querySelector("p.error")?.remove();
   const { data, error } = await supabase
     .from("guests")
-    .select("id,name,surname")
+    .select("name,surname,invite_code,invite_type")
     .ilike("name", '%' + _person.name + '%')
     .ilike("surname", '%' + _person.surname + '%');
 
-    if (data.length === 0) {
-      showGuestError("Mi dispiace, non ho trovato nessun invitato con questo nome. Puoi sempre provare a contattare gli sposi se pensi ci sia un errore.");
-      return;
-    } else {
-      displayGuestResults(data);
-    }
+  if (data.length === 0) {
+    showGuestError("Mi dispiace, non ho trovato nessun invitato con questo nome. Puoi sempre provare a contattare gli sposi se pensi ci sia un errore.");
+    return;
+  } else {
+    displayGuestResults(data);
+  }
 }
 
 function showGuestError(message) {
-  let error = _guestForm.querySelector("p");
+  let error = guestForm.querySelector("p");
   if (error == null) {
     error = document.createElement("p");
     error.classList.add("error");
-    _guestForm.appendChild(error);
+    guestForm.appendChild(error);
   }
   error.textContent = message;
 }
 
 function displayGuestResults(guests) {
-  console.log(guests);
-
+  guestList.innerHTML = "";
+  guests.forEach(guest => {
+    const listItem = document.createElement("li");
+    listItem.textContent = `${guest.name} ${guest.surname}`;
+    listItem.addEventListener("click", selectGuest.bind(null, guest));
+    guestList.appendChild(listItem);
+  });
 }
 
-document.querySelector("input[name='name']").addEventListener("input", searchGuest);
-document.querySelector("input[name='surname']").addEventListener("input", searchGuest);
+async function selectGuest(guest) {
+  document.querySelector(".loading").hidden = false;
+  document.querySelector("search").hidden = true;
+  _person = guest;
+  await showRSVPForm();
+}
+
+async function showRSVPForm() {
+  const invite = document.querySelector("p[name=invite]");
+  let andCo = "";
+  switch (_person.invite_type) {
+    case 0: ", assieme alla tua famiglia,";
+    case 2: ", assieme alla tua dolce metà,";
+  }
+  invite.innerHTML = `Gentile ${_person.name} ${_person.surname}, siamo lieti di invitarti${andCo} al nostro matrimonio!`;
+
+  const { data, error } = await supabase
+    .from("guests")
+    .select("presence, menu, allergies, transport, return_time")
+    .eq('invite_code', _person.invite_code);
+  const guest = data[0];
+
+  document.querySelector(`input[name="participation"][value="${guest.presence ? "yes" : "no"}"]`).checked = true;
+  document.querySelector("select[name=menu]").value = guest.menu;
+  document.querySelector("input[name=allergies]").value = guest.allergies;
+  document.querySelector("input[name=transport]").checked = guest.transport;
+
+  await addMenuOption();
+
+  document.querySelector(".loading").hidden = true;
+  document.querySelector("article").hidden = false;
+}
+
+async function addMenuOption() {
+  const menuSelect = document.querySelector("select[name=menu]");
+  menuSelect.innerHTML = "";
+
+  const { data, error } = await supabase
+    .from("menu")
+    .select("*");
+
+  data.forEach(menu => {
+    menuSelect.innerHTML += `<option value="${menu.id}">${menu.name}</option>`;
+  })
+}
+
+async function sendRSVP() {
+  const presence = document.querySelector('input[name="participation"]:checked').value == "yes";
+  const menu = document.querySelector("select[name=menu]").value;
+  const allergies = document.querySelector("input[name=allergies]").value;
+  const needTransportation = document.querySelector("input[name=transport]").checked;
+
+
+  const { data, error } = await supabase
+    .from('guests')
+    .update({
+      presence: presence,
+      menu: menu,
+      allergies: allergies,
+      transport: needTransportation
+    })
+    .eq('invite_code', _person.invite_code)
+    .select();
+
+  document.querySelector("article").hidden = true;
+  document.querySelector("h2#RSVP-confirmation").hidden = false;
+}
+
+document.querySelector("button#search").addEventListener("click", searchGuest);
+document.querySelector("button#sendRSVP").addEventListener("click", sendRSVP);

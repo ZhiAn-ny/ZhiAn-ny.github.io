@@ -126,7 +126,8 @@ async function sendRSVP() {
       presence: presence,
       menu: menu,
       allergies: allergies,
-      transport: needTransportation
+      transport: needTransportation,
+      last_edit: Date.now()
     })
     .eq('invite_code', _person.invite_code)
     .select();

@@ -29,6 +29,9 @@ section {
     flex-direction: column;
     justify-content: center;
 }
+article {
+    padding: 2em !important;
+}
 
 h1,
 h2 {

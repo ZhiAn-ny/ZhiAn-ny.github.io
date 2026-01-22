@@ -55,12 +55,15 @@ h2 {
     font-size: 5em;
 }
 .greater-chinese { 
-    font-size: 7em; 
+    font-size: 45vh;
     font-family: 'Ma Shan Zheng', sans-serif;
     letter-spacing: -0.6em;
     color: #f6e8d4;
-    position: relative;
-
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    z-index: -1;
+    left: 50%;
 }
 
 .comment {

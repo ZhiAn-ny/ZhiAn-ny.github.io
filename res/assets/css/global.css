@@ -168,6 +168,9 @@ button {
 .parent {
     position: relative;
 }
+.partent section {
+    margin: 0;
+}
 
 .corner-top-left,
 .corner-top-right,
@@ -175,14 +178,14 @@ button {
 .corner-bottom-right {
     position: absolute;
     width: 15px;
-    height: 25px;
+    height: 35px;
 }
 .corner-top-left-alt,
 .corner-top-right-alt,
 .corner-bottom-left-alt,
 .corner-bottom-right-alt {
     position: absolute;
-    width: 25px;
+    width: 35px;
     height: 15px;
 }
 

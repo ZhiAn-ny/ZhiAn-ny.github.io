@@ -78,8 +78,10 @@ async function showRSVPForm() {
   const invite = document.querySelector("p[name=invite]");
   let andCo = "";
   switch (_person.invite_type) {
-    case 0: ", assieme alla tua famiglia,";
-    case 2: ", assieme alla tua dolce metà,";
+    case 0:
+      andCo = ", assieme alla tua famiglia,"; break;
+    case 2:
+      andCo = ", assieme alla tua dolce metà,"; break;
   }
   invite.innerHTML = `Gentile ${_person.name} ${_person.surname}, siamo lieti di invitarti${andCo} al nostro matrimonio!`;
 

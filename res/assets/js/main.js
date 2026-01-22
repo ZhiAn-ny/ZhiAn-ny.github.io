@@ -97,7 +97,7 @@ async function showRSVPForm() {
   await addMenuOption();
 
   document.querySelector(".loading").hidden = true;
-  document.querySelector("article").hidden = false;
+  document.querySelector("article#invite").hidden = false;
 }
 
 async function addMenuOption() {
@@ -132,7 +132,7 @@ async function sendRSVP() {
     .eq('invite_code', _person.invite_code)
     .select();
 
-  document.querySelector("article").hidden = true;
+  document.querySelector("article#invite").hidden = true;
   document.querySelector("h2#RSVP-confirmation").hidden = false;
 }
 

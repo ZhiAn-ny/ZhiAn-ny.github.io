@@ -29,9 +29,11 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
 }
 article {
     padding: 2em !important;
+    position: relative;
 }
 
 h1,
@@ -50,22 +52,39 @@ h2 {
     font-size: 2em;
     margin: 0.5em;
 }
+.chinese-bg-left {
+    font-size: 10vh;
+    position: absolute;
+    z-index: -1;
+    top: 14.5vh;
+    left: -1vw;
+}
+.chinese-bg-right {
+    font-size: 10vh;
+    position: absolute;
+    z-index: -1;
+    top: 2vh;
+    right: -4vw;
+}
 
 .greater {
     font-size: 5em;
 }
 .greater-chinese { 
     font-size: 45vh;
-    font-family: 'Ma Shan Zheng', sans-serif;
     letter-spacing: -0.6em;
-    color: #f6e8d4;
     position: absolute;
     margin: 0;
     padding: 0;
-    z-index: -1;
     left: 50%;
+    top: 3vh;
 }
 
+.chinese {
+    font-family: 'Ma Shan Zheng', sans-serif;
+    color: #f6e8d4;
+    z-index: -1;
+}
 .comment {
     font-size: 0.75em;
     font-style: italic;
@@ -155,13 +174,8 @@ button {
 }
 
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .row {

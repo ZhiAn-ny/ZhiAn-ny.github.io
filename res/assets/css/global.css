@@ -168,8 +168,8 @@ button {
 .parent {
     position: relative;
 }
-.partent section {
-    margin: 0;
+div.partent section {
+    margin: 0 0 !important;
 }
 
 .corner-top-left,

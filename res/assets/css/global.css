@@ -36,35 +36,44 @@ article {
     position: relative;
 }
 
-h1,
-h2 {
+h1, h2, .italiana {
     font-family: "Italiana", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
-h1 {
+h1, .bigger {
     font-size: 3em;
     margin: 0.5em;
 }
 
-h2 {
+h2, .big {
     font-size: 2em;
     margin: 0.5em;
+}
+.chinese {
+    font-family: 'Ma Shan Zheng', sans-serif;
+    color: #f6e8d4;
+    z-index: -1;
+    p {
+        margin: 0;
+    }
 }
 .chinese-bg-left {
     font-size: 10vh;
     position: absolute;
-    z-index: -1;
-    top: 18.5vh;
-    left: -1vw;
+    top: 7vh;
+    left: 0;
+    width: 100%;
+    text-align: left;
 }
 .chinese-bg-right {
     font-size: 10vh;
     position: absolute;
-    z-index: -1;
-    top: 2vh;
-    right: -4vw;
+    top: 6.5vh;
+    right: 0;
+    text-align: right;
+    width: 100%;
 }
 
 .greater {
@@ -80,11 +89,6 @@ h2 {
     top: 3vh;
 }
 
-.chinese {
-    font-family: 'Ma Shan Zheng', sans-serif;
-    color: #f6e8d4;
-    z-index: -1;
-}
 .comment {
     font-size: 0.75em;
     font-style: italic;
@@ -110,10 +114,16 @@ input[type=checkbox] {
 }
 
 ul {
-    padding: 0;
+    padding: 0 1em;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
 li {
+    width: 100%;
     list-style-type: none;
     margin: 5px 0;
     background-color: var(--secondary-a);
@@ -158,6 +168,14 @@ button {
 
 .no-padding {
     padding: 0 !important;
+}
+.no-padding-side {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.no-margin-side {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 
 .loading-container {
@@ -237,5 +255,24 @@ button {
 
 
 @media (min-width: 600px) {
-    /* desktop styles */
+    input, select, li {
+        max-width: 50%;
+    }
+
+    .chinese-bg-left {
+        font-size: 10vh;
+        position: absolute;
+        top: 7vh;
+        left: 20vw;
+        width: 100%;
+        text-align: left;
+    }
+    .chinese-bg-right {
+        font-size: 10vh;
+        position: absolute;
+        top: 6.5vh;
+        right: 20vw;
+        text-align: right;
+        width: 100%;
+    }
 }

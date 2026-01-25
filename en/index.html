@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="res/assets/css/global.css" rel="stylesheet" type="text/css" />
+    <script src="res/assets/js/main.js" type="module"></script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+        type="text/javascript"></script>
+    <title>喜喜 | A + F</title>
+</head>
+
+<body>
+    <main>
+
+        <section>
+            <div class="chinese greater-chinese"><p>喜喜</p></div>
+            <h1 class="greater">Anny & Filippo</h1>
+
+            <div class="parent">
+                <img class="peony-s-top-right" src="res/assets/img/peony_01.png" alt="peony flower">
+            </div>
+            <div class="parent">
+                <img class="plum-s-bottom-left" src="res/assets/img/plum_branch_01.png" alt="plum branch">
+            </div>
+        </section>
+
+        <section class="parent bordered opaque">
+            <div class="corner-top-left bordered no-padding"></div>
+            <div class="corner-top-right bordered no-padding"></div>
+            <div class="corner-bottom-left bordered no-padding"></div>
+            <div class="corner-bottom-right bordered no-padding"></div>
+            <div class="corner-top-left-alt bordered no-padding"></div>
+            <div class="corner-top-right-alt bordered no-padding"></div>
+            <div class="corner-bottom-left-alt bordered no-padding"></div>
+            <div class="corner-bottom-right-alt bordered no-padding"></div>
+
+            <article>
+                <p>Siamo lieti di annunciare che</p>
+
+                <h1 class="no-margin-side">Ci sposiamo!</h1>
+                <div class="chinese chinese-bg-left">
+                    <p>我们结婚啦</p>
+                </div>
+
+                <p>Siamo felicissimi di condividere con te questa notizia!</p>
+            </article>
+            
+            <article class="no-padding-side">
+                <p>Il matrimonio si terrà</p>
+                <div class="chinese chinese-bg-right">
+                    <p>婚礼</p>
+                </div>
+
+                <p class="big italiana">Sabato</p>
+                <p class="bigger italiana">30 Maggio 2026</p>
+                <p>Ore 15:00</p>
+
+                <p class="big italiana">Chiesa San Martino</p>
+                <p>a Riccione</p>
+                <a href="https://maps.app.goo.gl/1Bsk7EYBc3NLmp276" class="comment">Vedi indicazioni</a>
+            </article>
+
+            <article class="no-padding-side">
+                <p>I festeggiamenti proseguiranno poi con amici e parenti presso</p>
+                 <div class="chinese chinese-bg-left">
+                    <p>喜筵</p>
+                </div>
+
+                <p class="big italiana">Locanda I Girasoli</p>
+                <p>di Misano Adriatico</p>
+                <a href="https://maps.app.goo.gl/GuhS9SsRiCNxaVS5A" class="comment">Vedi indicazioni</a>
+            </article>
+
+            <article>
+                <p>
+                    In attesa del grande giorno, abbiamo creato questo sito, dove
+                    scriveremo tutti gli aggiornamenti e i dettagli riguardanti il
+                    nostro matrimonio.
+                </p>
+                <p>
+                    Più in basso troverai una sezione dedicata alla conferma della tua
+                    presenza: ti preghiamo di darci una risposta il prima possibile
+                    in modo da aiutarci nell'organizzazione dei preparativi.
+                </p>
+            </article>
+        </section>
+
+        <section>
+            <div class="chinese greater-chinese"><p>喜喜</p></div>
+            <h1>RSVP</h1>
+            <div class="loading-container">
+                <div class="loading" hidden></div>
+            </div>
+            <search>
+                <p>Cerca il tuo nominativo nella lista degli invitati.</p>
+
+                <form id="guest-form" action="none">
+                    <fieldset>
+                        <input name="name" type="text" placeholder="Nome">
+                        <input name="surname" type="text" placeholder="Cognome">
+                    </fieldset>
+                </form>
+                <button id="search">Cerca</button>
+                
+                <ul id="guest-list"></ul>
+            </search>
+
+            <article hidden class="bordered opaque" id="invite">
+                <p name="invite">[inserire invito personalizzato]</p>
+                <p class="comment">Per favore, compila il modulo sottostante per confermare la tua presenza.</p>
+                <form action="none" id="rsvp">
+
+                    <input type="radio" id="_yes" name="participation" value="yes" required>
+                    <label for="_yes">Parteciperò</label>
+                    <input type="radio" id="_no" name="participation" value="no">
+                    <label for="_no">Non parteciperò</label>
+
+                    <fieldset class="row wrap no-padding top-margin-5vh">
+                        <label for="cars">Menù:</label>
+                        <select name="menu" id="menu"></select>
+                        <input type="text" name="allergies" id="allergies" placeholder="Allergie o intolleranze">
+                    </fieldset>
+
+                    <fieldset class="row wrap no-padding top-margin-5vh">
+                        <label for="transport">Serve un passaggio?</label>
+                        <input type="checkbox" name="transport" id="transport" value="no">
+                        <p class="comment">Disclaimer: stiamo considerando un servizio navetta ma solo se riuscimao a
+                            raggiungere abbastanza partecipanti.</p>
+
+                        <!-- <label for="return_time">Preferenza orario:</label>
+                        <input type="time" name="return_time" id="return_time"> -->
+                    </fieldset>
+                </form>
+                <button id="sendRSVP">Salva</button>
+            </article>
+
+            <h2 hidden id="RSVP-confirmation">Grazie della conferma!</h2>
+
+            <div class="parent">
+                <img class="peony-s-top-left" src="res/assets/img/peony_01.png" alt="peony flower">
+            </div>
+            <div class="parent">
+                <img class="plum-s-top" src="res/assets/img/plum_branch_01.png" alt="plum branch">
+            </div>
+        </section>
+
+    </main>
+</body>
+
+</html>

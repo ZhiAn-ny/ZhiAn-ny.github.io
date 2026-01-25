@@ -263,33 +263,34 @@ button {
     right: 0;
 }
 
-img.peony-m {
+img {
     position: absolute;
-    right: -28vw;
-    rotate: 210deg;
-    top: -80vh;
-    width: 120%;
+    z-index: -1;
 }
-img.plum-m {
-    position: absolute;
-    width: 161%;
-    rotate: 10deg;
-    left: -32vw;
-    bottom: -20vh;
-}
-img.peony-s {
-    position: absolute;
+img.peony-s-top-right {
     right: -28vw;
     rotate: 210deg;
     top: -90vh;
     width: 97%;
 }
-img.plum-s {
-    position: absolute;
+img.plum-s-bottom-left {
     width: 127%;
     rotate: 30deg;
     left: -45vw;
     bottom: -35vh;
+}
+img.peony-s-top-left {
+    left: -36vw;
+    rotate: 141deg;
+    top: -83vh;
+    width: 85%;
+}
+img.plum-s-top {
+    width: 127%;
+    rotate: -112deg;
+    right: -62vw;
+    top: -88vh;
+    transform: scaleX(-1);
 }
 
 
@@ -315,14 +316,27 @@ img.plum-s {
         width: 100%;
     }
 
-    img.peony-s {
+    img.peony-s-top-right {
         width: 30%;
         right: -7vw;
         top: -74vh;
     }
-    img.plum-s {
+    img.plum-s-bottom-left {
         width: 53%;
         left: -17vw;
         bottom: -49vh;
+    }
+    img.peony-s-top-left {
+        left: -17vw;
+        rotate: 141deg;
+        top: -93vh;
+        width: 49%;
+    }
+    img.plum-s-top {
+        width: 63%;
+        rotate: -485deg;
+        right: -31vw;
+        top: -89vh;
+        transform: scaleX(-1);
     }
 }

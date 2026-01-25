@@ -140,3 +140,11 @@ async function sendRSVP() {
 
 document.querySelector("button#search").addEventListener("click", searchGuest);
 document.querySelector("button#sendRSVP").addEventListener("click", sendRSVP);
+
+document.querySelector("a#church").addEventListener("click", () => {
+  window.open("https://maps.app.goo.gl/1Bsk7EYBc3NLmp276");
+});
+document.querySelector("a#girasoli").addEventListener("click", () => {
+  window.open("https://maps.app.goo.gl/GuhS9SsRiCNxaVS5A");
+});
+

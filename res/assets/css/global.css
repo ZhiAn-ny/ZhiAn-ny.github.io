@@ -298,6 +298,9 @@ img.plum-s-top {
     input, select, li {
         max-width: 50%;
     }
+    fieldset.row input, fieldset.row select {
+        max-width: 45% !important;
+    }
 
     .chinese-bg-left {
         font-size: 10vh;

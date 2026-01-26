@@ -282,14 +282,14 @@ img.plum-s-bottom-left {
 img.peony-s-top-left {
     left: -36vw;
     rotate: 141deg;
-    top: -83vh;
+    top: -40vh;
     width: 85%;
 }
 img.plum-s-top {
     width: 127%;
     rotate: -112deg;
     right: -62vw;
-    top: -88vh;
+    top: -45vh;
     transform: scaleX(-1);
 }
 
@@ -335,8 +335,8 @@ img.plum-s-top {
     img.plum-s-top {
         width: 63%;
         rotate: -485deg;
-        right: -31vw;
-        top: -89vh;
+        right: -21vw;
+        top: -87vh;
         transform: scaleX(-1);
     }
 }

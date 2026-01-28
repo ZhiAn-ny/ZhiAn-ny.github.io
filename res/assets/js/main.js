@@ -1,19 +1,10 @@
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-
-const supabaseUrl = "https://irvazdxcjjnjvilkpoqj.supabase.co";
-const supabaseKey = "sb_publishable_Wh3FU7a6kxGTG2hbOETZBA_tcTNe-Ba";
-
-export const supabase = createClient(supabaseUrl, supabaseKey);
+import { getWeddingGuests, getGuestData, getMenuList, updateGuestData } from "./database.js"
 
 let _person = { name: "", surname: "" };
 const guestForm = document.querySelector("form[id='guest-form']");
 const guestList = document.querySelector("ul[id='guest-list']");
 
-
-async function searchGuest() {
-  _person.name = document.querySelector("input[name='name']").value;
-  _person.surname = document.querySelector("input[name='surname']").value;
-
+function checkSearchData() {
   const hasSQLInjection = /('|--|;|\/\*|\*\/|xp_)/i;
   if (hasSQLInjection.test(_person.name) || hasSQLInjection.test(_person.surname)) {
     showGuestError("Carattere non valido rilevato.");
@@ -31,17 +22,19 @@ async function searchGuest() {
     showGuestError("Eh, volevi fare il furbo?");
     return;
   }
+}
+
+async function searchGuest() {
+  _person.name = document.querySelector("input[name='name']").value;
+  _person.surname = document.querySelector("input[name='surname']").value;
+
+  checkSearchData();
 
   guestForm.querySelector("p.error")?.remove();
-  const { data, error } = await supabase
-    .from("guests")
-    .select("name,surname,invite_code,invite_type")
-    .ilike("name", '%' + _person.name + '%')
-    .ilike("surname", '%' + _person.surname + '%');
+  const data = await getWeddingGuests(_person.name, _person.surname);
 
   if (data.length === 0) {
     showGuestError("Mi dispiace, non ho trovato nessun invitato con questo nome. Puoi sempre provare a contattare gli sposi se pensi ci sia un errore.");
-    return;
   } else {
     displayGuestResults(data);
   }
@@ -74,7 +67,7 @@ async function selectGuest(guest) {
   await showRSVPForm();
 }
 
-async function showRSVPForm() {
+function personalizeInvite() {
   const invite = document.querySelector("p[name=invite]");
   let andCo = "";
   switch (_person.invite_type) {
@@ -84,14 +77,13 @@ async function showRSVPForm() {
       andCo = ", assieme alla tua dolce metà,"; break;
   }
   invite.innerHTML = `Gentile ${_person.name} ${_person.surname}, siamo lieti di invitarti${andCo} al nostro matrimonio!`;
+}
 
-  const { data, error } = await supabase
-    .from("guests")
-    .select("presence, menu, allergies, transport, return_time")
-    .eq('invite_code', _person.invite_code);
-  const guest = data[0];
+async function showRSVPForm() {
+  personalizeInvite();
 
-  document.querySelector(`input[name="participation"][value="${guest.presence ? "yes" : "no"}"]`).checked = true;
+  const guest = await getGuestData(_person.invite_code);
+  document.querySelector(`input[name="participation"][value="${guest.presence}"]`).checked = true;
   document.querySelector("select[name=menu]").value = guest.menu;
   document.querySelector("input[name=allergies]").value = guest.allergies;
   document.querySelector("input[name=transport]").checked = guest.transport;
@@ -105,34 +97,19 @@ async function showRSVPForm() {
 async function addMenuOption() {
   const menuSelect = document.querySelector("select[name=menu]");
   menuSelect.innerHTML = "";
-
-  const { data, error } = await supabase
-    .from("menu")
-    .select("*");
-
+  const data = await getMenuList()
   data.forEach(menu => {
     menuSelect.innerHTML += `<option value="${menu.id}">${menu.name}</option>`;
   })
 }
 
 async function sendRSVP() {
-  const presence = document.querySelector('input[name="participation"]:checked').value == "yes";
+  const presence = document.querySelector('input[name="participation"]:checked').value;
   const menu = document.querySelector("select[name=menu]").value;
   const allergies = document.querySelector("input[name=allergies]").value;
   const needTransportation = document.querySelector("input[name=transport]").checked;
 
-
-  const { data, error } = await supabase
-    .from('guests')
-    .update({
-      presence: presence,
-      menu: menu,
-      allergies: allergies,
-      transport: needTransportation,
-      last_edit: Date.now()
-    })
-    .eq('invite_code', _person.invite_code)
-    .select();
+  await updateGuestData(_person.invite_code, presence, menu, allergies, needTransportation);
 
   document.querySelector("article#invite").hidden = true;
   document.querySelector("h2#RSVP-confirmation").hidden = false;

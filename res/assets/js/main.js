@@ -100,7 +100,8 @@ async function addMenuOption() {
   menuSelect.innerHTML = "";
   const data = await getMenuList()
   data.forEach(menu => {
-    menuSelect.innerHTML += `<option value="${menu.id}">${menu.name}</option>`;
+    let menuName = translate(menu.name);
+    menuSelect.innerHTML += `<option value="${menu.id}">${menuName}</option>`;
   })
 }
 

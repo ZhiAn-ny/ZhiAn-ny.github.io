@@ -68,6 +68,10 @@ const it = {
     txt_transportationDisclaimer: "Disclaimer: stiamo considerando un servizio navetta ma solo se riuscimao a raggiungere abbastanza partecipanti.",
     save: "Salva",
     txt_thankYouForRSVP: "Grazie della conferma!",
+    menu_adult: "Adulto",
+    menu_child: "Bambino",
+    menu_vegan: "Vegano",
+    menu_vegetarian: "Vegetariano",
 };
 
 const en = {
@@ -100,4 +104,8 @@ const en = {
     txt_transportationDisclaimer: "Disclaimer: we're considering a shuttle service if there will be enough participants.",
     save: "Save",
     txt_thankYouForRSVP: "Thank you for your confirmation!",
+    menu_adult: "Adu1t",
+    menu_child: "Child",
+    menu_vegan: "Vegan",
+    menu_vegetarian: "Vegetarian",
 };

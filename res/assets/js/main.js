@@ -119,13 +119,6 @@ async function sendRSVP() {
 document.querySelector("button#search").addEventListener("click", searchGuest);
 document.querySelector("button#sendRSVP").addEventListener("click", sendRSVP);
 
-document.querySelector("a#church").addEventListener("click", () => {
-  window.open("https://maps.app.goo.gl/1Bsk7EYBc3NLmp276");
-});
-document.querySelector("a#girasoli").addEventListener("click", () => {
-  window.open("https://maps.app.goo.gl/GuhS9SsRiCNxaVS5A");
-});
-
 const langs = document.querySelectorAll("span[name=lang-selector]");
 langs.forEach(lang => {
   lang.addEventListener("click", () => {
@@ -133,3 +126,11 @@ langs.forEach(lang => {
     document.querySelector("html").lang = lang.getAttribute("iso");
   });
 })
+
+document.querySelector("a#church")?.addEventListener("click", () => {
+  window.open("https://maps.app.goo.gl/1Bsk7EYBc3NLmp276");
+});
+document.querySelector("a#girasoli")?.addEventListener("click", () => {
+  window.open("https://maps.app.goo.gl/GuhS9SsRiCNxaVS5A");
+});
+

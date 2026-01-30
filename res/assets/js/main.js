@@ -1,4 +1,5 @@
 import { getWeddingGuests, getGuestData, getMenuList, updateGuestData } from "./database.js"
+import { translate, switchLanguage } from "./transloco.js"
 
 let _person = { name: "", surname: "" };
 const guestForm = document.querySelector("form[id='guest-form']");
@@ -7,19 +8,19 @@ const guestList = document.querySelector("ul[id='guest-list']");
 function checkSearchData() {
   const hasSQLInjection = /('|--|;|\/\*|\*\/|xp_)/i;
   if (hasSQLInjection.test(_person.name) || hasSQLInjection.test(_person.surname)) {
-    showGuestError("Carattere non valido rilevato.");
+    showGuestError(translate("invalidChar"));
     return;
   }
 
   const namePattern = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s'-]*$/;
   if (!namePattern.test(_person.name) || !namePattern.test(_person.surname)) {
-    showGuestError("I nomi possono contenere solo lettere, spazi, trattini e apici.");
+    showGuestError(translate("namesCantContainSpecials"));
     return;
   }
 
   const hasForbiddenWords = /(admin|select|drop|insert|delete|update|union|create|alter|shutdown)/i;
   if (hasForbiddenWords.test(_person.name) || hasForbiddenWords.test(_person.surname)) {
-    showGuestError("Eh, volevi fare il furbo?");
+    showGuestError(translate("alertSQLInjection"));
     return;
   }
 }
@@ -34,7 +35,7 @@ async function searchGuest() {
   const data = await getWeddingGuests(_person.name, _person.surname);
 
   if (data.length === 0) {
-    showGuestError("Mi dispiace, non ho trovato nessun invitato con questo nome. Puoi sempre provare a contattare gli sposi se pensi ci sia un errore.");
+    showGuestError(translate("guestNotFound"));
   } else {
     displayGuestResults(data);
   }
@@ -72,11 +73,11 @@ function personalizeInvite() {
   let andCo = "";
   switch (_person.invite_type) {
     case 0:
-      andCo = ", assieme alla tua famiglia,"; break;
+      andCo = translate("andYourFamily"); break;
     case 2:
-      andCo = ", assieme alla tua dolce metà,"; break;
+      andCo = translate("andYourPartner"); break;
   }
-  invite.innerHTML = `Gentile ${_person.name} ${_person.surname}, siamo lieti di invitarti${andCo} al nostro matrimonio!`;
+  invite.innerHTML = translate("weddingInvite", [_person.name, _person.surname, andCo]);
 }
 
 async function showRSVPForm() {
@@ -125,3 +126,10 @@ document.querySelector("a#girasoli").addEventListener("click", () => {
   window.open("https://maps.app.goo.gl/GuhS9SsRiCNxaVS5A");
 });
 
+const langs = document.querySelectorAll("span[name=lang-selector]");
+langs.forEach(lang => {
+  lang.addEventListener("click", () => {
+    switchLanguage(lang.getAttribute("iso"));
+    document.querySelector("html").lang = lang.getAttribute("iso");
+  });
+})

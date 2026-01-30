@@ -21,6 +21,7 @@ export function translate(key, args) {
            trStr = trStr.replace(`\${${i}}`, args[i]);
        }
    }
+   return trStr;
 }
 
 export function switchLanguage(lang) {

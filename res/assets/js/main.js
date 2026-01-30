@@ -77,7 +77,7 @@ function personalizeInvite() {
     case 2:
       andCo = translate("andYourPartner"); break;
   }
-  invite.innerHTML = translate("weddingInvite", [_person.name, _person.surname, andCo]);
+  invite.innerText = translate("weddingInvite", [_person.name, _person.surname, andCo]);
 }
 
 async function showRSVPForm() {

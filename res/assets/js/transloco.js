@@ -55,7 +55,7 @@ const it = {
     h15: "Ore 15:00",
     viewAddress: "Vedi indicazioni",
     txt_partyWillTakePlace: "I festeggiamenti proseguiranno poi con amici e parenti presso",
-    inMisano: "di Misano Adriatico",
+    inMisano: "a Misano Adriatico",
     txt_waitingBigDay: "In attesa del grande giorno, abbiamo creato questo sito, dove scriveremo tutti gli aggiornamenti e i dettagli riguardanti il nostro matrimonio.",
     txt_belowIsRSVP: "Più in basso troverai una sezione dedicata alla conferma della tua presenza: ti preghiamo di darci una risposta il prima possibile in modo da aiutarci nell'organizzazione dei preparativi.",
     searchGuestList: "Cerca il tuo nominativo nella lista degli invitati.",

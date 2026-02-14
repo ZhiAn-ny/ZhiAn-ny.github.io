@@ -1,5 +1,5 @@
 import { getWeddingGuests, getGuestData, getMenuList, updateGuestData } from "./database.js"
-import { translate, switchLanguage } from "./transloco.js"
+import { translate, switchLanguage, translateText } from "./transloco.js"
 
 let _person = { name: "", surname: "" };
 const guestForm = document.querySelector("form[id='guest-form']");
@@ -100,7 +100,7 @@ async function addMenuOption() {
   menuSelect.innerHTML = "";
   const data = await getMenuList()
   data.forEach(menu => {
-    let menuName = translate(menu.name);
+    let menuName = translateText(menu.name, "it");
     menuSelect.innerHTML += `<option value="${menu.id}">${menuName}</option>`;
   })
 }

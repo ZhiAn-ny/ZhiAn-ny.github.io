@@ -24,6 +24,23 @@ export function translate(key, args) {
    return trStr;
 }
 
+/** Doesn't function with strings with arguments. */
+export function translateText(text, origLang) {
+   let orig = getDataSet(origLang);
+   let other = getDataSet();
+   let key = getKeyFromText(text, orig);
+   return other[key];
+}
+
+function getKeyFromText(text, dataSet) {
+    for (let key in dataSet) {
+        if (dataSet[key] == text) {
+            return key;
+        }
+    }
+    return "";
+}
+
 export function switchLanguage(lang) {
     const allTxt = document.querySelectorAll("h1, h2, p, label, button, a");
     const current = getDataSet();
@@ -72,6 +89,7 @@ const it = {
     menu_child: "Bambino",
     menu_vegan: "Vegano",
     menu_vegetarian: "Vegetariano",
+    menu_halal: "Halal",
 };
 
 const en = {
@@ -108,4 +126,5 @@ const en = {
     menu_child: "Child",
     menu_vegan: "Vegan",
     menu_vegetarian: "Vegetarian",
+    menu_halal: "Halal",
 };

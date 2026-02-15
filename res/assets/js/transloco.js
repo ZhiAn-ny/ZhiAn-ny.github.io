@@ -82,7 +82,7 @@ const it = {
     present: "Parteciperò",
     absent: "Non parteciperò",
     needTransportation: "Serve un passaggio?",
-    txt_transportationDisclaimer: "Disclaimer: stiamo considerando un servizio navetta ma solo se riuscimao a abbastanza partecipanti.",
+    txt_transportationDisclaimer: "Disclaimer: stiamo considerando un servizio navetta ma solo se riusciamo a abbastanza partecipanti.",
     save: "Salva",
     txt_thankYouForRSVP: "Grazie della conferma!",
     menu_adult: "Adulto",

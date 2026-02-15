@@ -153,6 +153,10 @@ li {
     justify-content: space-between;
     cursor: pointer;
 }
+li.confirmed {
+    color: gray;
+    cursor: auto;
+}
 
 button {
     background-color: var(--ternary);

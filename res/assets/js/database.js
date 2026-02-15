@@ -8,7 +8,7 @@ export const supabase = createClient(supabaseUrl, supabaseKey);
 export async function getWeddingGuests(name, surname) {
   const { data, error } = await supabase
       .from("guests")
-      .select("name,surname,invite_code,invite_type")
+      .select("name,surname,invite_code,invite_type,presence")
       .ilike("name", '%' + name + '%')
       .ilike("surname", '%' + surname + '%');
   return data;

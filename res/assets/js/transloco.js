@@ -90,6 +90,7 @@ const it = {
     menu_vegan: "Vegano",
     menu_vegetarian: "Vegetariano",
     menu_halal: "Halal",
+    confirmed: "Confermato",
 };
 
 const en = {
@@ -127,4 +128,5 @@ const en = {
     menu_vegan: "Vegan",
     menu_vegetarian: "Vegetarian",
     menu_halal: "Halal",
+    confirmed: "Confirmed",
 };

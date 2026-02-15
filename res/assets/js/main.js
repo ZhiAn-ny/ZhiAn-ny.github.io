@@ -56,7 +56,12 @@ function displayGuestResults(guests) {
   guests.forEach(guest => {
     const listItem = document.createElement("li");
     listItem.textContent = `${guest.name} ${guest.surname}`;
-    listItem.addEventListener("click", selectGuest.bind(null, guest));
+    if (guest.presence == 1) {
+      listItem.classList.add("confirmed");
+      listItem.textContent += ` (${translate("confirmed")})`
+    } else {
+      listItem.addEventListener("click", selectGuest.bind(null, guest));
+    }
     guestList.appendChild(listItem);
   });
 }

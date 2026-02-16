@@ -29,6 +29,9 @@ async function searchGuest() {
   _person.name = document.querySelector("input[name='name']").value;
   _person.surname = document.querySelector("input[name='surname']").value;
 
+  _person.name = _person.name.trimStart().trimEnd();
+  _person.surname = _person.surname.trimStart().trimEnd();
+
   checkSearchData();
 
   guestForm.querySelector("p.error")?.remove();

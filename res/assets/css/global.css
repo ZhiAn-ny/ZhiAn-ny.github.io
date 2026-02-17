@@ -118,6 +118,17 @@ article .chinese {
 fieldset {
     border: none;
 }
+fieldset.for-radio {
+    justify-content: center;
+}
+span.radio-container {
+    background-color: var(--secondary-a);
+    border: 1px solid var(--ternary);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 2px 5px;
+}
+
 input[type=text],
 select {
     font-family: 'Quattrocento Sans', sans-serif;

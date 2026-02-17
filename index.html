@@ -120,13 +120,20 @@
                 <p name="invite"></p>
                 <p class="comment">Per favore, compila il modulo sottostante per confermare la tua presenza.</p>
                 <form action="none" id="rsvp">
-
-                    <input type="radio" id="_yes" name="participation" value="0" required>
-                    <label for="_yes">In Attesa</label>
-                    <input type="radio" id="_yes" name="participation" value="1" required>
-                    <label for="_yes">Parteciperò</label>
-                    <input type="radio" id="_no" name="participation" value="-1">
-                    <label for="_no">Non parteciperò</label>
+                    <fieldset class="row wrap for-radio">
+                        <span class="radio-container" name="participation" value="0">
+                            <input type="radio" id="_yes" name="participation" value="0" required>
+                            <label for="_yes">In Attesa</label>
+                        </span>
+                        <span class="radio-container" name="participation" value="1">
+                            <input type="radio" id="_yes" name="participation" value="1" required>
+                            <label for="_yes">Parteciperò</label>
+                        </span>
+                        <span class="radio-container" name="participation" value="-1">
+                            <input type="radio" id="_no" name="participation" value="-1">
+                            <label for="_no">Non parteciperò</label>
+                        </span>
+                    </fieldset>
 
                     <fieldset class="row wrap no-padding top-margin-5vh">
                         <label for="cars">Menù:</label>

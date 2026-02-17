@@ -226,9 +226,21 @@ button {
     animation: spin 1s linear infinite;
 }
 
+.hovering {
+    font-weight: bold;
+    position: relative;
+    top: 25px;
+    animation: hover 1s linear infinite;
+}
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+@keyframes hover {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
 }
 
 .row {

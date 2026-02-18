@@ -75,7 +75,7 @@ const it = {
     inMisano: "a Misano Adriatico",
     txt_waitingBigDay: "In attesa del grande giorno, abbiamo creato questo sito, dove scriveremo tutti gli aggiornamenti e i dettagli riguardanti il nostro matrimonio.",
     txt_belowIsRSVP: "Più in basso troverai una sezione dedicata alla conferma della tua presenza: ti preghiamo di darci una risposta il prima possibile in modo da aiutarci nell'organizzazione dei preparativi.",
-    searchGuestList: "Cerca il tuo nominativo nella lista degli invitati.",
+    searchGuestList: "Cerca il tuo nominativo nella lista degli invitati e compila il form per confermare.",
     search: "Cerca",
     txt_pleaseCompileForm: "Per favore, compila il modulo sottostante per confermare la tua presenza.",
     onHold: "In Attesa",

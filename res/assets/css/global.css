@@ -3,6 +3,7 @@
 
 :root {
     --primary: #fff9ef;
+    --primary-a: #fff9efa5;
     --secondary: #efc573;
     --secondary-a: #efc57324;
     --ternary: #c4391d;
@@ -185,7 +186,9 @@ button {
     border-radius: 5px;
     padding: 0.5em;
 }
-
+.semi-opaque {
+    background-color: var(--primary-a);
+}
 .opaque {
     background-color: var(--primary);
 }
@@ -308,6 +311,12 @@ img.peony-s-top-right {
     right: -28vw;
     rotate: 210deg;
     top: -90vh;
+    width: 97%;
+}
+img.peony-s-top-right-faq {
+    right: -28vw;
+    rotate: 210deg;
+    top: -40vh;
     width: 97%;
 }
 img.plum-s-bottom-left {
